@@ -4,6 +4,17 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // Get user input to create and return an array of employee objects
+  //Compare function for sorting the employee array
+  const compareFunction = function(e1, e2) {
+    // loop through both last name's letters, returning at the first different letter 
+    for (let i=0; i<Math.min(e1.lastName.length, e2.lastName.length); i++) {
+      if (e1.lastName.charCodeAt(i) - e2.lastName.charCodeAt(i)!=0) {
+        return e1.lastName.charCodeAt(i) - e2.lastName.charCodeAt(i)
+      }
+    }
+    // if the loop finishes without returning, one last name contains the other so the function just treats them as identical
+    return 0;
+  }
   const employeeArray = [];
   while(true) {
     const employee = {
@@ -23,6 +34,9 @@ const collectEmployees = function() {
     employeeArray.push(employee);
     
     if (!window.confirm("Enter another employee?")) {
+      //Sort employees alphabetically by last name
+      employeeArray.sort(compareFunction)
+
       return employeeArray;
     }
   }
