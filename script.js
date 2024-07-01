@@ -27,7 +27,13 @@ const collectEmployees = function() {
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
-  
+  var average = 0; 
+  for (let i = 0; i < employeesArray.length; i++) {
+    average += employeesArray[i].salary;
+  }
+  average /= employeesArray.length;
+  const dollarAverage = average.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  console.log("The average employee salary between our " + employeesArray.length + " employees is " + dollarAverage);
 }
 
 // Select a random employee
