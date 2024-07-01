@@ -11,13 +11,17 @@ const collectEmployees = function() {
       lastName: "",
       salary: 0
     }
+    //Ask user for first and last name and salary
     employee.firstName = window.prompt("Please enter your first name");
     employee.lastName = window.prompt("Please enter your last name");
     const salaryEntry = parseFloat(window.prompt("Please enter your salary"));
+    //Check if salary entered is a number
     if (!isNaN(salaryEntry)) {
       employee.salary = salaryEntry;
     }
+
     employeeArray.push(employee);
+    
     if (!window.confirm("Enter another employee?")) {
       return employeeArray;
     }
@@ -26,13 +30,16 @@ const collectEmployees = function() {
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // Calculate and display the average salary
+  // Calculate the average salary
   var average = 0; 
   for (let i = 0; i < employeesArray.length; i++) {
     average += employeesArray[i].salary;
   }
   average /= employeesArray.length;
+
+  // Convert average to USD style
   const dollarAverage = average.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
   console.log("The average employee salary between our " + employeesArray.length + " employees is " + dollarAverage);
 }
 
