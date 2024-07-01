@@ -4,7 +4,7 @@
 This project was made to build familiarity with JavaScript. In particular working with defining new objects and working with the Window object.
 
 [A link to the website](https://akaufmanfrey.github.io/Payroll-Tracker/)
-![A screenshot of the website](./assets/images/payroll_screenshot.png)
+![A screenshot of the website](./assets/images/payroll_screenshot.PNG)
 
 ## Installation
 
